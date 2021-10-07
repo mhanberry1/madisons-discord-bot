@@ -23,7 +23,7 @@ client.on('messageCreate', async (message) => {
 			messages.forEach(async (message) => {
 				reactions = message.reactions.cache
 				reactions.forEach(reaction => {
-					emojiName = reaction.emoji.name;
+					emojiName = (reaction.emoji.id != null) ? `<:${reaction.emoji.name}:${reaction.emoji.id}>` : reaction.emoji.name;
 					if (emojiTally[emojiName]) {
 						emojiTally[emojiName]++;
 					} else {
